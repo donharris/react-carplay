@@ -1,5 +1,11 @@
 #!/bin/bash
 
+#Check to ensure the current user is not being installed as root
+if (( $EUID = 0 )); then
+    echo "Please do not run as root"
+    exit
+fi
+
 #Set path to copy appimage and autolaunch location
 path="/home/$USER/Desktop/Carplay.AppImage"
 
